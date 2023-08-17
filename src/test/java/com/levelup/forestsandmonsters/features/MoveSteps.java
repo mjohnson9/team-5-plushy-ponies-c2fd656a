@@ -5,7 +5,8 @@ import static org.junit.Assert.assertNotNull;
 
 import java.awt.Point;
 
-import com.levelup.forestsandmonsters.GameController;
+import com.levelup.forestsandmonsters.game.GameController;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

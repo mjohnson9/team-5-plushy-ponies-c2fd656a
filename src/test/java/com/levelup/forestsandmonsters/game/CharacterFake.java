@@ -1,4 +1,6 @@
-package com.levelup.forestsandmonsters;
+package com.levelup.forestsandmonsters.game;
+
+import com.levelup.forestsandmonsters.game.GameMap;
 
 public class CharacterFake extends Character {
     public GameMap getMap() {

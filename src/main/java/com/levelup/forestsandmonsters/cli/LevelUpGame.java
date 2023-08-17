@@ -3,15 +3,15 @@ package com.levelup.forestsandmonsters.cli;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.levelup.forestsandmonsters.GameController;
-import com.levelup.forestsandmonsters.GameController.GameStatus;
-
 import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellMethodAvailability;
 import org.springframework.shell.standard.ShellOption;
 import org.springframework.shell.standard.commands.Quit;
+
+import com.levelup.forestsandmonsters.game.GameController;
+import com.levelup.forestsandmonsters.game.GameController.GameStatus;
 
 @ShellComponent
 public class LevelUpGame implements Quit.Command {

@@ -1,4 +1,4 @@
-package com.levelup.forestsandmonsters;
+package com.levelup.forestsandmonsters.game;
 
 import java.awt.Point;
 
