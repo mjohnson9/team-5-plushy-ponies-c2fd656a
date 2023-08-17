@@ -8,11 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.awt.Point;
 
 import org.junit.Test;
+import org.springframework.util.Assert;
 
 import com.levelup.forestsandmonsters.game.GameMap;
 import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
 
 public class GameMapTest {
+
+
+
     @Test
     public void GameMapInitializeTest(){
         GameMap testObj = new GameMap();
@@ -30,6 +34,14 @@ public class GameMapTest {
         GameMap testObj = new GameMap();
         Position[][] returnedPositions = testObj.getPositions();
         assertNotNull("Returned Positions are not null", returnedPositions);
+    }
+
+    @Test
+    public void getPostionsLengthTest(){
+        GameMap testObj = new GameMap();
+        System.out.println("getTotalPos:"+testObj.getTotalPositions());
+        System.out.println(testObj.numPositions+","+testObj.getTotalPositions());
+        assertEquals(testObj.numPositions, testObj.getTotalPositions());
     }
 
     @Test 

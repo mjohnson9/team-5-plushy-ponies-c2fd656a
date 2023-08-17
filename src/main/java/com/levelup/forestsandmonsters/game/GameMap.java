@@ -5,11 +5,23 @@ import java.awt.Point;
 import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
 
 public class GameMap {
-    int numPositions = 100;
+    int numPositions =100;
+    Position[][] positions;
+
+    public GameMap(){
+       int xLen = 10;
+       int yLen = 10;
+       positions = new Position[xLen][yLen];
+       for(int x = 0; x < xLen ; x++){
+            for(int y=0; y<yLen; y++){
+                positions[x][y] = new Position(x,y);
+            }
+       }
+    }
 
 
     public int getTotalPositions() {
-        return numPositions;
+        return positions.length*positions[0].length; 
     }
 
     public Position[][] getPositions() {
