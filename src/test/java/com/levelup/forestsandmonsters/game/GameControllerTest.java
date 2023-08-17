@@ -3,6 +3,7 @@ package com.levelup.forestsandmonsters.game;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.Point;
 
@@ -27,7 +28,7 @@ public class GameControllerTest {
     public void createCharacterExists() {
         GameController testObj = new GameController();
         testObj.createCharacter("name");
-    }
+        }
 
     @Test
     public void setPositionHandlesUnitializedCharacter() {
@@ -54,7 +55,38 @@ public class GameControllerTest {
         testObj.startGame();
         assertNotNull(testObj.map);
         assertNotNull(testObj.map.getPositions());
-
     }
 
+    @Test
+    public void checkGameStatusMessageNotNull() {
+        GameStatus status = new GameStatus();
+        
+        assertNotNull(status.toString());
+    }
+
+    @Test
+    public void checkGameStatusMessageContainsVariables() {
+        final String ARBITRARY_NAME = "JimBobJoeBat";
+        final Point ARBITRARY_POSITION = new Point(7, 2);
+        final int ARBITRARY_MOVE_COUNT = 108;
+
+        GameStatus status = new GameStatus();
+        status.characterName = ARBITRARY_NAME;
+        status.currentPosition = ARBITRARY_POSITION;
+        status.moveCount = ARBITRARY_MOVE_COUNT;
+
+        final String statusString = status.toString();
+        assertTrue(statusString.contains(ARBITRARY_NAME));
+        assertTrue(statusString.contains(ARBITRARY_POSITION.toString()));
+        assertTrue(statusString.contains(Integer.toString(ARBITRARY_MOVE_COUNT)));
+    }
+
+    @Test
+    public void gameStatusNameMatchesCharacterName() {
+        final String ARBITRARY_NAME = "aaaaaaaaaaaaaaaä";
+        GameController testObj = new GameController();
+        testObj.createCharacter(ARBITRARY_NAME);
+
+        assertEquals(ARBITRARY_NAME, testObj.getStatus().characterName);
+    }
 }

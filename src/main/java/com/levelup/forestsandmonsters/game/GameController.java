@@ -29,6 +29,7 @@ public class GameController {
 
     public void createCharacter(String name) {
         this.character = new Character(name);
+        this.status.characterName = name;
     }
 
     public void startGame() {
