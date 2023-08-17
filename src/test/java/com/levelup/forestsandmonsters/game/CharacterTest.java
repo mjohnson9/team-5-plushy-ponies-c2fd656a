@@ -17,4 +17,12 @@ public class CharacterTest {
         Character testObj = new Character(ARBITRARY_CHARACTER_NAME);
         assertEquals(ARBITRARY_CHARACTER_NAME, testObj.getName());
     }
+
+    @Test
+    public void characterCanEnterMap() {
+        GameMap fakeMap = new GameMapFake();
+        CharacterFake testObj = new CharacterFake();
+        testObj.enterMap(fakeMap);
+        assertEquals(testObj.getMap(), fakeMap);
+    }
 }
