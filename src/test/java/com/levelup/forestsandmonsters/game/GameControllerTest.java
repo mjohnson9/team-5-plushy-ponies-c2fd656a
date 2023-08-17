@@ -1,5 +1,6 @@
 package com.levelup.forestsandmonsters.game;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
@@ -12,4 +13,9 @@ public class GameControllerTest {
         assertNotNull(testObj.status);
     }
 
+    @Test
+    public void getTotalPositionsIs100() {
+        GameController testObj = new GameController();
+        assertEquals(testObj.getTotalPositions(), 100);
+    }
 }

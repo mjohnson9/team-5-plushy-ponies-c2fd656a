@@ -20,13 +20,11 @@ public class GameController {
         status = new GameStatus();
     }
 
-    // TODO: Ensure this AND CLI commands match domain model
     public static enum DIRECTION {
         NORTH, SOUTH, EAST, WEST
     }
 
     // Pre-implemented to demonstrate ATDD
-    // TODO: Update this if it does not match your design
     public void createCharacter(String name) {
         if (name != null && !name.equals("")) {
             status.characterName = name;
@@ -46,8 +44,7 @@ public class GameController {
     }
 
     public void move(DIRECTION directionToMove) {
-        // TODO: Implement move - should call something on another class
-        // TODO: Should probably also update the game results
+        throw new UnsupportedOperationException();
     }
 
     public void setCharacterPosition(Point coordinates) {
@@ -61,7 +58,6 @@ public class GameController {
     public int getTotalPositions() {
         // TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be
         // testable
-        return -10;
+        return 100;
     }
-
 }
