@@ -10,12 +10,14 @@ public class GameController {
         // TODO: Add other status data
         public String characterName = DEFAULT_CHARACTER_NAME;
         public Point currentPosition = null;
-        // TODO: Write a failing unit test that will force you to set this to the right number
+        // TODO: Write a failing unit test that will force you to set this to the right
+        // number
         public int moveCount = -100;
     }
 
     GameStatus status;
     Character character;
+    GameMap map;
 
     public GameController() {
         status = new GameStatus();
@@ -30,9 +32,13 @@ public class GameController {
     }
 
     public void startGame() {
-        // TODO: Implement startGame - Should probably create tiles and put the character
+        // TODO: Implement startGame - Should probably create tiles and put the
+        // character
         // on them?
         // TODO: Should also update the game results?
+
+        this.map = new GameMap();
+
     }
 
     public GameStatus getStatus() {
@@ -44,7 +50,7 @@ public class GameController {
     }
 
     public void setCharacterPosition(Point coordinates) {
-        if(this.character == null) {
+        if (this.character == null) {
             throw new IllegalStateException("Cannot set character position for an unitialized character");
         }
 
