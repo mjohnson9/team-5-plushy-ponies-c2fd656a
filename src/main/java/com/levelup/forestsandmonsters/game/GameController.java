@@ -18,6 +18,7 @@ public class GameController {
     GameStatus status;
     Character character;
     GameMap map;
+    int currentMoveCount = 0;
 
     public GameController() {
         status = new GameStatus();
@@ -47,7 +48,8 @@ public class GameController {
     }
 
     public void move(DIRECTION directionToMove) {
-        throw new UnsupportedOperationException();
+        this.character.move(directionToMove);
+        currentMoveCount++;
     }
 
     public void setCharacterPosition(Point coordinates) {
@@ -59,7 +61,11 @@ public class GameController {
     }
 
     public void setCurrentMoveCount(int moveCount) {
-        // TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
+        currentMoveCount = moveCount;
+    }
+
+    public int getCurrentMoveCount() {
+        return currentMoveCount;
     }
 
     public int getTotalPositions() {
