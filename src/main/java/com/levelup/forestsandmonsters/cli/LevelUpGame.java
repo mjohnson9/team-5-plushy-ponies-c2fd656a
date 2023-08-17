@@ -31,8 +31,9 @@ public class LevelUpGame implements Quit.Command {
   public void createCharacter(@ShellOption(defaultValue = "Character") String characterName) {
     gameController.createCharacter(characterName);
     GameStatus status = gameController.getStatus();
+    int resourceNum = (int)(Math.random()*1000000) ;
 
-    System.out.println("Your character, " + status.characterName + " is created!");
+    System.out.println("Greetings Resource " + resourceNum + " (" + status.characterName + ") You have awoken in the  C.I.C. Can you survive and escape?");
   }
 
   @ShellMethodAvailability("notStartedCheck")
@@ -42,7 +43,7 @@ public class LevelUpGame implements Quit.Command {
     gameController.startGame();
     // TODO: Update this prompt. Also, do you want to get the game status and tell
     // the character where their character is?
-    System.out.println("Welcome to Forests and Monsters! You have entered a mysterious place.");
+    System.out.println("You are in a gray cube farm, how do you proceed?");
     System.out.println("Would you like to go North(N), South(S), East(E), West(W) or Exit(X)?");
   }
 
