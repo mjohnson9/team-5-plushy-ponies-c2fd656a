@@ -21,28 +21,29 @@ public class Character {
     public void move(DIRECTION direction) {
 
         Position pos= getPosition();
-        Position posnew=null;
-        switch (direction){
-           case NORTH:
-                 posnew = new  Position(pos.getX(),Math.max(pos.getY()-1,0));
-                setPosition(posnew);
-                break;
-           case SOUTH:
-                 posnew = new  Position(pos.getX(),Math.min(pos.getY()+1,9));
-                setPosition(posnew);
-                break;
-           case EAST:
-                posnew = new  Position(Math.min(pos.getX()+1,9),pos.getY());
-                setPosition(posnew);
-                break;
-           case WEST:
-                posnew = new  Position(Math.max(pos.getX()-1,0),pos.getY());
-                setPosition(posnew);
-                break;
-            default :
-                break;
+        Position posnew = map.calculatedPosition(pos, direction);
+        setPosition(posnew);
+        // switch (direction){
+        //    case NORTH:
+        //          posnew = new  Position(pos.getX(),Math.max(pos.getY()-1,0));
+        //         setPosition(posnew);
+        //         break;
+        //    case SOUTH:
+        //          posnew = new  Position(pos.getX(),Math.min(pos.getY()+1,9));
+        //         setPosition(posnew);
+        //         break;
+        //    case EAST:
+        //         posnew = new  Position(Math.min(pos.getX()+1,9),pos.getY());
+        //         setPosition(posnew);
+        //         break;
+        //    case WEST:
+        //         posnew = new  Position(Math.max(pos.getX()-1,0),pos.getY());
+        //         setPosition(posnew);
+        //         break;
+        //     default :
+        //         break;
 
-        }
+        // }
     }
 
     public String getName() {
