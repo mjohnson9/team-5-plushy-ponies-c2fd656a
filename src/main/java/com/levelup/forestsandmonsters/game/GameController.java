@@ -15,6 +15,7 @@ public class GameController {
     }
 
     GameStatus status;
+    Character character;
 
     public GameController() {
         status = new GameStatus();
@@ -24,13 +25,8 @@ public class GameController {
         NORTH, SOUTH, EAST, WEST
     }
 
-    // Pre-implemented to demonstrate ATDD
     public void createCharacter(String name) {
-        if (name != null && !name.equals("")) {
-            status.characterName = name;
-        } else {
-            status.characterName = DEFAULT_CHARACTER_NAME;
-        }
+        this.character = new Character(name);
     }
 
     public void startGame() {
@@ -56,8 +52,6 @@ public class GameController {
     }
 
     public int getTotalPositions() {
-        // TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be
-        // testable
         return 100;
     }
 }

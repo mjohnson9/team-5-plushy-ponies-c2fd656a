@@ -18,4 +18,10 @@ public class GameControllerTest {
         GameController testObj = new GameController();
         assertEquals(testObj.getTotalPositions(), 100);
     }
+
+    @Test
+    public void createCharacterExists() {
+        GameController testObj = new GameController();
+        testObj.createCharacter("name");
+    }
 }
