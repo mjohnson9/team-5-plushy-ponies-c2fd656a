@@ -13,6 +13,8 @@ public class PositionTest {
         assertNotNull("Position not null", testObj);
     }
 
-    
-
+    public void positionTestXY() {
+        Position testObj = new Position(1,2);
+        assertNotNull(testObj);
+    }
 }
