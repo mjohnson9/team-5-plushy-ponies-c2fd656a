@@ -5,9 +5,11 @@ public class Character {
 
     private String name;
     GameMap map;
+    private Position position;
 
     public Character() {
         this.name = DEFAULT_NAME;
+        this.position = new Position();
     }
 
     public Character(String name) {
@@ -21,8 +23,18 @@ public class Character {
     public void enterMap(GameMap map) {
         this.map = map;
     }
-    
+
     public GameMap getMap() {
         return this.map;
     }
+
+    public Position getPosition() {
+        return this.position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+
+    }
+
 }

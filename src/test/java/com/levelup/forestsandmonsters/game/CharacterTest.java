@@ -25,4 +25,18 @@ public class CharacterTest {
         testObj.enterMap(fakeMap);
         assertEquals(testObj.getMap(), fakeMap);
     }
+
+    @Test
+    public void characterCanGetPosition() {
+        CharacterFake testObj = new CharacterFake();
+        assertNotNull(testObj.getPosition());
+    }
+
+    @Test
+
+    public void characterCanGetPositionIsConsistent() {
+        Position fakePosition = new Position();
+        CharacterFake testObj = new CharacterFake(fakePosition);
+        assertEquals(testObj.getPosition(), fakePosition);
+    }
 }
