@@ -2,6 +2,10 @@ package com.levelup.forestsandmonsters.game;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
+
+import java.awt.Point;
+
 import org.junit.Test;
 
 import com.levelup.forestsandmonsters.game.GameController;
@@ -23,5 +27,24 @@ public class GameControllerTest {
     public void createCharacterExists() {
         GameController testObj = new GameController();
         testObj.createCharacter("name");
+    }
+
+    @Test
+    public void setPositionHandlesUnitializedCharacter() {
+        GameController testObj = new GameController();
+        assertThrows(IllegalStateException.class, () -> testObj.setCharacterPosition(new Point()));
+    }
+
+    @Test
+    public void setPositionHandlesResultsInReadable() {
+        final Point ARTBIRARY_POS = new Point(5, 3);
+
+        GameController testObj = new GameController();
+        testObj.createCharacter(GameController.DEFAULT_CHARACTER_NAME);
+        testObj.setCharacterPosition(ARTBIRARY_POS);
+
+        Point characterPos = testObj.character.getPosition().point;
+        assertEquals(characterPos.x, ARTBIRARY_POS.x);
+        assertEquals(characterPos.y, ARTBIRARY_POS.y);
     }
 }

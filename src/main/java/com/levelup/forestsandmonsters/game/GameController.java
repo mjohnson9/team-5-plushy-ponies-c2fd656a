@@ -44,7 +44,11 @@ public class GameController {
     }
 
     public void setCharacterPosition(Point coordinates) {
-        // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+        if(this.character == null) {
+            throw new IllegalStateException("Cannot set character position for an unitialized character");
+        }
+
+        this.character.setPosition(new Position(coordinates.x, coordinates.y));
     }
 
     public void setCurrentMoveCount(int moveCount) {
