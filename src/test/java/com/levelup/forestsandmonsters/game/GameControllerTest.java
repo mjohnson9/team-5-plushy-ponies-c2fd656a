@@ -47,14 +47,14 @@ public class GameControllerTest {
         assertEquals(characterPos.x, ARTBIRARY_POS.x);
         assertEquals(characterPos.y, ARTBIRARY_POS.y);
     }
+
     @Test
     public void startGameCreatesMap() {
         GameController testObj = new GameController();
         testObj.startGame();
-
         assertNotNull(testObj.map);
+        assertNotNull(testObj.map.getPositions());
 
     }
-
 
 }
