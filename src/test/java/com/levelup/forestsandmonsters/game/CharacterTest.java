@@ -1,4 +1,4 @@
-package com.levelup.forestsandmonsters;
+package com.levelup.forestsandmonsters.game;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

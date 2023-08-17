@@ -13,4 +13,6 @@ public class PositionTest {
         assertNotNull("Position not null", testObj);
     }
 
+    
+
 }

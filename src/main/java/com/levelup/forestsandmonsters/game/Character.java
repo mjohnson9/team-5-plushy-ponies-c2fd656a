@@ -1,4 +1,4 @@
-package com.levelup.forestsandmonsters;
+package com.levelup.forestsandmonsters.game;
 
 public class Character {
     static private String DEFAULT_NAME = "Character";
