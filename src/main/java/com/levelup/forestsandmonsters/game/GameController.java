@@ -31,6 +31,7 @@ public class GameController {
     public void createCharacter(String name) {
         this.character = new Character(name);
         this.status.characterName = name;
+        character.setPosition(new Position(5,5));
     }
 
     public void startGame() {
