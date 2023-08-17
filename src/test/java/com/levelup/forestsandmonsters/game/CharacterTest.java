@@ -2,9 +2,18 @@ package com.levelup.forestsandmonsters.game;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 import org.junit.Test;
 
+import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
+
 public class CharacterTest {
+    @Test
+    public void characterMoveIsNotImplemented() {
+        Character testObj = new Character();
+        assertThrows(UnsupportedOperationException.class, () -> testObj.move(DIRECTION.NORTH));
+    }
+
     @Test
     public void emptyConstructorExists() {
         Character testObj = new Character();

@@ -1,5 +1,7 @@
 package com.levelup.forestsandmonsters.game;
 
+import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
+
 public class Character {
     static private String DEFAULT_NAME = "Character";
 
@@ -14,6 +16,11 @@ public class Character {
 
     public Character(String name) {
         this.name = name;
+    }
+
+    public void move(DIRECTION direction) {
+        // TODO
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     public String getName() {
@@ -34,7 +41,5 @@ public class Character {
 
     public void setPosition(Position position) {
         this.position = position;
-
     }
-
 }
