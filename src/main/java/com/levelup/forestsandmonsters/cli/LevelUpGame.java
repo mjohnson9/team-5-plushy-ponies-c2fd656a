@@ -77,17 +77,19 @@ public class LevelUpGame implements Quit.Command {
 
   @ShellMethod(value = "End the game", key = { "X", "x" })
   public void endGame() {
-    System.out.println("You exit the mysterious world.");
+    System.out.println("You exit the C.I.C.");
     printSummary();
     System.exit(0);
   }
 
   private void printSummary() {
-    System.out.println("Exiting the mysterious land!");
+  String characterName = "";
     for (GameStatus status : gameHistory) {
       // TODO: Override toString on game status to print pretty
       System.out.println(status);
+      characterName = status.characterName;
     }
+    System.out.println(characterName + " gave up and quit, Not long enough for Severence.");
     // TODO: Print anything else you committed to in your mockup
   }
 
