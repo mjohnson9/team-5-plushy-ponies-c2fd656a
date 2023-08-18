@@ -30,10 +30,9 @@ public class GameController {
     }
 
     public void startGame() {
-        // TODO: Implement startGame - Should probably create tiles and put the
-        // character
-        // on them?
-        // TODO: Should also update the game results?
+        if(this.character == null) {
+            throw new IllegalStateException("The character must be created before the game can start.");
+        }
 
         this.map = new GameMap();
         this.character.enterMap(this.map);

@@ -125,4 +125,11 @@ public class GameControllerTest {
         Position endPosition = testObj.getStatus().currentPosition;
         assertNotEquals(startPosition, endPosition);
     }
+
+    @Test
+    public void startGameFailsIfNoCharacter() {
+        GameController testObj = new GameController();
+
+        assertThrows(IllegalStateException.class, () -> testObj.startGame());
+    }
 }
