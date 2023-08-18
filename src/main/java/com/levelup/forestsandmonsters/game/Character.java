@@ -23,6 +23,7 @@ public class Character {
         Position pos= getPosition();
         Position posnew = map.calculatedPosition(pos, direction);
         setPosition(posnew);
+        System.out.println("You are located at Cube " + posnew.getX() +","+ posnew.getY());
         // switch (direction){
         //    case NORTH:
         //          posnew = new  Position(pos.getX(),Math.max(pos.getY()-1,0));
