@@ -5,6 +5,10 @@ import java.awt.Point;
 import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
 
 public class GameMap {
+
+    private final int MAP_LIMIT_TOP = 9;
+    private final int MAP_LIMIT_BOTTOM = 0;
+
     int numPositions =100;
     Position[][] positions;
 
@@ -48,8 +52,8 @@ public class GameMap {
     }
 
     public boolean isPositionValid(Point positionCoordinates){
-        return ((positionCoordinates.x <= 9 && positionCoordinates.x>=0) 
-        && (positionCoordinates.y <= 9 && positionCoordinates.y>=0));
+        return ((positionCoordinates.x <= MAP_LIMIT_TOP && positionCoordinates.x>=MAP_LIMIT_BOTTOM) 
+        && (positionCoordinates.y <= MAP_LIMIT_TOP && positionCoordinates.y>=MAP_LIMIT_BOTTOM));
     }
 
 }
