@@ -10,12 +10,21 @@ import java.awt.Point;
 import org.junit.Test;
 
 import com.levelup.forestsandmonsters.game.GameController;
+import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
 
 public class GameControllerTest {
     @Test
     public void initializationCreatesResults() {
         GameController testObj = new GameController();
         assertNotNull(testObj.status);
+    }
+
+    @Test
+    public void characterMapIsInitialized() {
+        GameController testObj = new GameController();
+        testObj.createCharacter("test");
+        testObj.startGame();
+        testObj.move(DIRECTION.SOUTH);
     }
 
     @Test
@@ -52,6 +61,8 @@ public class GameControllerTest {
     @Test
     public void startGameCreatesMap() {
         GameController testObj = new GameController();
+        // character must be created to start a game
+        testObj.createCharacter(GameController.DEFAULT_CHARACTER_NAME);
         testObj.startGame();
         assertNotNull(testObj.map);
         assertNotNull(testObj.map.getPositions());

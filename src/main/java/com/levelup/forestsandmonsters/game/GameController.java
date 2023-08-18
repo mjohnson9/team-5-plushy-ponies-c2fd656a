@@ -41,7 +41,7 @@ public class GameController {
         // TODO: Should also update the game results?
 
         this.map = new GameMap();
-
+        this.character.enterMap(this.map);
     }
 
     public GameStatus getStatus() {
