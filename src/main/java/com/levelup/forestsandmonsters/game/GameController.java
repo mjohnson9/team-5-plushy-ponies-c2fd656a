@@ -12,7 +12,7 @@ public class GameController {
 
         public String toString() {
             return this.characterName + " gave up and quit " +
-                "at " + this.currentPosition + " after " + this.moveCount + " " +
+                "at cube" + this.currentPosition + " after " + this.moveCount + " " +
                 "moves! Not enough for severance. :(";
         }
     }
