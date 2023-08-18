@@ -8,6 +8,7 @@ public class GameController {
     GameStatus status;
     Character character;
     GameMap map;
+    public Boolean isGameStarted = false;
 
     public GameController() {
         status = new GameStatus();
@@ -32,10 +33,12 @@ public class GameController {
     public void startGame() {
         if(this.character == null) {
             throw new IllegalStateException("The character must be created before the game can start.");
-        }
-
+        } else {
         this.map = new GameMap();
         this.character.enterMap(this.map);
+        this.isGameStarted = true;
+        }
+
     }
 
     public GameStatus getStatus() {

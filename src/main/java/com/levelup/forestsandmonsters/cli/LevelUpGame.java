@@ -29,7 +29,8 @@ public class LevelUpGame implements Quit.Command {
   @ShellMethodAvailability("notStartedCheck")
   @ShellMethod(value = "Create a character (characterName)", key = { "create-character", "create" })
   public void createCharacter(@ShellOption(defaultValue = "Character") String characterName) {
-    gameController.createCharacter(characterName);
+      gameController.createCharacter(characterName);
+
     GameStatus status = gameController.getStatus();
     int resourceNum = (int)(Math.random()*1000000) ;
 
@@ -39,8 +40,22 @@ public class LevelUpGame implements Quit.Command {
   @ShellMethodAvailability("notStartedCheck")
   @ShellMethod("Start the game")
   public void startGame() {
-    isGameStarted = true;
-    gameController.startGame();
+    isGameStarted = gameController.isGameStarted;
+  
+    try{
+      gameController.startGame();
+    } catch(IllegalStateException e) {
+      System.out.println("You are now a resource");
+      createCharacter("Resource");
+      gameController.startGame();
+      isGameStarted = true;
+
+      //System.out.println("Did you want to state your name or be referred to as a resource? \n Enter 'create {NAME}' to create a character with a custom name \n Enter 'n' to be a resource");
+      // do{
+        
+      // } while(!isGameStarted);
+    }
+  
     // TODO: Update this prompt. Also, do you want to get the game status and tell
     // the character where their character is?
     System.out.println("You are in a gray cube farm, how do you proceed?");

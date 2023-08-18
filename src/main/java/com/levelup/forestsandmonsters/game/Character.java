@@ -3,7 +3,7 @@ package com.levelup.forestsandmonsters.game;
 import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
 
 public class Character {
-    static private String DEFAULT_NAME = "Character";
+    static private String DEFAULT_NAME = "Resource";
 
     private String name;
     GameMap map;
