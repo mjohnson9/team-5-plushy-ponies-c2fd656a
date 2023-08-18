@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import java.awt.Point;
 
 import com.levelup.forestsandmonsters.game.GameController;
+import com.levelup.forestsandmonsters.game.Position;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,7 +17,7 @@ public class MoveSteps {
     GameController testObj = new GameController();
     int startX, startY, endX, endY;
     GameController.DIRECTION direction;
-    Point currentPosition;
+    Position currentPosition;
 
     @Given("the character starts at position with XCoordinates {int}")
     public void givenTheCharacterStartsAtX(int startX) {
@@ -49,13 +50,13 @@ public class MoveSteps {
     @Then("the character is now at position with XCoordinates {int}")
     public void checkXCoordinates(int endX) {
         assertNotNull("Expected position not null", this.currentPosition) ;
-        assertEquals(endX, this.currentPosition.x);
+        assertEquals(endX, this.currentPosition.getX());
     }
 
     @Then("YCoordinates {int}")
     public void checkYCoordinates(int endY) {
         assertNotNull("Expected position not null", this.currentPosition);
-        assertEquals(endY, this.currentPosition.y);
+        assertEquals(endY, this.currentPosition.getY());
     }
 
     @Then("the new move count is {int}")

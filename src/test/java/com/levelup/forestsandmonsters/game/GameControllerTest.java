@@ -1,6 +1,7 @@
 package com.levelup.forestsandmonsters.game;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
@@ -11,6 +12,7 @@ import org.junit.Test;
 
 import com.levelup.forestsandmonsters.game.GameController;
 import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
+import com.levelup.forestsandmonsters.game.GameController.GameStatus;
 
 public class GameControllerTest {
     @Test
@@ -78,7 +80,7 @@ public class GameControllerTest {
     @Test
     public void checkGameStatusMessageContainsVariables() {
         final String ARBITRARY_NAME = "JimBobJoeBat";
-        final Point ARBITRARY_POSITION = new Point(7, 2);
+        final Position ARBITRARY_POSITION = new Position(7, 2);
         final int ARBITRARY_MOVE_COUNT = 108;
 
         GameStatus status = new GameStatus();
@@ -99,5 +101,29 @@ public class GameControllerTest {
         testObj.createCharacter(ARBITRARY_NAME);
 
         assertEquals(ARBITRARY_NAME, testObj.getStatus().characterName);
+    }
+
+    @Test
+    public void moveCountUpdates() {
+        GameController testObj = new GameController();
+        testObj.createCharacter(GameController.DEFAULT_CHARACTER_NAME);
+        testObj.startGame();
+
+        int startMoveCount = testObj.getStatus().moveCount;
+        testObj.move(DIRECTION.SOUTH);
+        assertNotEquals(testObj.getStatus().moveCount, startMoveCount);
+    }
+
+    @Test
+    public void moveUpdatesPosition() {
+        GameController testObj = new GameController();
+        testObj.createCharacter(GameController.DEFAULT_CHARACTER_NAME);
+        testObj.startGame();
+
+        Position startPosition = ((Position)testObj.getStatus().currentPosition.clone());
+        testObj.move(DIRECTION.SOUTH);
+
+        Position endPosition = testObj.getStatus().currentPosition;
+        assertNotEquals(startPosition, endPosition);
     }
 }

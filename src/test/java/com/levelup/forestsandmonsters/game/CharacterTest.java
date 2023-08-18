@@ -50,9 +50,8 @@ public class CharacterTest {
     }
 
     @Test
-
     public void characterCanGetPositionIsConsistent() {
-        Position fakePosition = new Position();
+        Position fakePosition = new Position(5, 5);
         CharacterFake testObj = new CharacterFake(fakePosition);
         assertEquals(testObj.getPosition(), fakePosition);
     }

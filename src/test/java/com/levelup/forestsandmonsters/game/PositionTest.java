@@ -5,11 +5,9 @@ import org.junit.Test;
 
 
 public class PositionTest {
-    
-    
     @Test
     public void positionTest() {
-        Position testObj = new Position();
+        Position testObj = new Position(0, 0);
         assertNotNull("Position not null", testObj);
     }
 

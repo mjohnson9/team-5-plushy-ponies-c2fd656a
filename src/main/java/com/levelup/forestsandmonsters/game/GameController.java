@@ -3,22 +3,23 @@ package com.levelup.forestsandmonsters.game;
 import java.awt.Point;
 
 public class GameController {
-
     static final String DEFAULT_CHARACTER_NAME = "Character";
 
-    public class GameStatus {
-        // TODO: Add other status data
+    public static class GameStatus {
         public String characterName = DEFAULT_CHARACTER_NAME;
-        public Point currentPosition = null;
-        // TODO: Write a failing unit test that will force you to set this to the right
-        // number
+        public Position currentPosition = null;
         public int moveCount = -100;
+
+        public String toString() {
+            return this.characterName + " gave up and quit " +
+                "at " + this.currentPosition + " after " + this.moveCount + " " +
+                "moves! Not enough for severance. :(";
+        }
     }
 
     GameStatus status;
     Character character;
     GameMap map;
-    int currentMoveCount = 0;
 
     public GameController() {
         status = new GameStatus();
@@ -32,6 +33,8 @@ public class GameController {
         this.character = new Character(name);
         this.status.characterName = name;
         character.setPosition(new Position(5,5));
+        this.status.currentPosition = this.character.getPosition();
+        this.status.moveCount = 0;
     }
 
     public void startGame() {
@@ -50,7 +53,9 @@ public class GameController {
 
     public void move(DIRECTION directionToMove) {
         this.character.move(directionToMove);
-        currentMoveCount++;
+        
+        this.status.moveCount += 1;
+        this.status.currentPosition = this.character.getPosition();
     }
 
     public void setCharacterPosition(Point coordinates) {
@@ -62,11 +67,11 @@ public class GameController {
     }
 
     public void setCurrentMoveCount(int moveCount) {
-        currentMoveCount = moveCount;
+        this.status.moveCount = moveCount;
     }
 
     public int getCurrentMoveCount() {
-        return currentMoveCount;
+        return this.status.moveCount;
     }
 
     public int getTotalPositions() {

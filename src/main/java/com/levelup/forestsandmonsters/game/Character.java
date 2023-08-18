@@ -11,7 +11,7 @@ public class Character {
 
     public Character() {
         this.name = DEFAULT_NAME;
-        this.position = new Position();
+        this.position = new Position(-1, -1);
     }
 
     public Character(String name) {
