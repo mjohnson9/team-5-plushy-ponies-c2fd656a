@@ -14,6 +14,8 @@ import com.levelup.forestsandmonsters.game.GameController;
 import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
 
 public class GameControllerTest {
+    private static final Position DEFAULT_POSITION = new Position(5, 5);
+
     @Test
     public void initializationCreatesResults() {
         GameController testObj = new GameController();
@@ -26,6 +28,15 @@ public class GameControllerTest {
         testObj.createCharacter("test");
         testObj.startGame();
         testObj.move(DIRECTION.SOUTH);
+    }
+
+    @Test
+    public void characterStartsAtCorrectDefaultPosition() {
+        GameController testObj = new GameController();
+        testObj.createCharacter();
+        testObj.startGame();
+
+        assertEquals(DEFAULT_POSITION, testObj.getStatus().currentPosition);
     }
 
     @Test
