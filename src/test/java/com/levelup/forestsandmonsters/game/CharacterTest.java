@@ -12,6 +12,8 @@ public class CharacterTest {
     @Test
     public void characterMoveIsNotImplemented() {
         Character testObj = new Character();
+        GameMap map = new GameMap();
+        testObj.enterMap(map);
         Position pos = new Position(0,0);
         testObj.setPosition(pos);
         assertNotNull(testObj);
