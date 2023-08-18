@@ -24,7 +24,17 @@ public class MoveSteps {
         this.startX = startX;
     }
 
-    @Given("starts at YCoordinates {int}") 
+    @Given("the character is named {word}")
+    public void givenTheCharacterIsNamed(String name) {
+        this.testObj.createCharacter(name);
+    }
+
+    @Given("the game is started")
+    public void givenTheGameIsStarted() {
+        this.testObj.startGame();
+    }
+
+    @Given("starts at YCoordinates {int}")
     public void givenTheCharacterStartsAtY(int startY) {
         this.startY = startY;
     }
@@ -49,7 +59,7 @@ public class MoveSteps {
 
     @Then("the character is now at position with XCoordinates {int}")
     public void checkXCoordinates(int endX) {
-        assertNotNull("Expected position not null", this.currentPosition) ;
+        assertNotNull("Expected position not null", this.currentPosition);
         assertEquals(endX, this.currentPosition.getX());
     }
 

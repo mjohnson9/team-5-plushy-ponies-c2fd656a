@@ -12,9 +12,10 @@ public class StartGameSteps {
 
     GameController testObj;
 
-    @When("the game is started")
-    public void whenTheCharacterSetsTheirName() {
+    @When("the game is started with a character named {word}")
+    public void whenTheCharacterSetsTheirName(String name) {
         testObj = new GameController();
+        testObj.createCharacter(name);
         testObj.startGame();
     }
 

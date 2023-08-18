@@ -37,7 +37,6 @@ task cucumberCli() {
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
               '--plugin', 'pretty',
-              '--tags', '~@wip',
               '--plugin', 'html:output/index.html', 
               '--glue', 'com.levelup.forestsandmonsters', 
               'src/test/resources']

@@ -4,7 +4,6 @@ Feature: CreateCharacter
 I want to create a new custom character, setting only their name.
 This split is VERY simple: the only customization is setting the name.
 
-@wip
 Scenario Outline:: Set character name
 
     Given player supplies the name <characterNameInput>

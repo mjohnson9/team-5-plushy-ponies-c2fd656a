@@ -29,6 +29,10 @@ public class GameController {
         NORTH, SOUTH, EAST, WEST
     }
 
+    public void createCharacter() {
+        this.createCharacter(DEFAULT_CHARACTER_NAME);
+    }
+
     public void createCharacter(String name) {
         this.character = new Character(name);
         this.status.characterName = name;
