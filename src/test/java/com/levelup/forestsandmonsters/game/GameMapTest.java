@@ -61,6 +61,20 @@ public class GameMapTest {
         GameMap testObj = new GameMap();
         assertTrue("This is valid", testObj.isPositionValid(new Point(5, 5)));
         assertFalse("This is NOT valid", testObj.isPositionValid(new Point(10, 5)));
-        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(5, 10)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(5, -1)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(10, 5)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(-1, 5)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(10, 10)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(-1, -1)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(10, -1)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(-1, 10)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(-1, -0)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(0, -1)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(10, 0)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(9, -1)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(10, 9)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(9, 10)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(0, 10)));
+        assertFalse("This is NOT valid", testObj.isPositionValid(new Point(-1, 9)));
     }
 }
