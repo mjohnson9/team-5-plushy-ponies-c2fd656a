@@ -5,18 +5,6 @@ import java.awt.Point;
 public class GameController {
     static final String DEFAULT_CHARACTER_NAME = "Character";
 
-    public static class GameStatus {
-        public String characterName = DEFAULT_CHARACTER_NAME;
-        public Position currentPosition = null;
-        public int moveCount = -100;
-
-        public String toString() {
-            return this.characterName + " gave up and quit " +
-                "at cube [" + this.currentPosition + "] after " + this.moveCount + " " +
-                "moves! Not enough for severance. :(";
-        }
-    }
-
     GameStatus status;
     Character character;
     GameMap map;

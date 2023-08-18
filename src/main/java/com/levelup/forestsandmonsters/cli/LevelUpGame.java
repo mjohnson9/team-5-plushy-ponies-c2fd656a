@@ -11,7 +11,7 @@ import org.springframework.shell.standard.ShellOption;
 import org.springframework.shell.standard.commands.Quit;
 
 import com.levelup.forestsandmonsters.game.GameController;
-import com.levelup.forestsandmonsters.game.GameController.GameStatus;
+import com.levelup.forestsandmonsters.game.GameStatus;
 
 @ShellComponent
 public class LevelUpGame implements Quit.Command {
@@ -84,15 +84,19 @@ public class LevelUpGame implements Quit.Command {
 
   private void printSummary() {
     System.out.println("Exiting the mysterious land!");
-//    for (GameStatus status : gameHistory) {
+    for (GameStatus status : gameHistory) {
       // TODO: Override toString on game status to print pretty
-      System.out.println(gameHistory.get(0));
-//    }
+      System.out.println(status);
+    }
     // TODO: Print anything else you committed to in your mockup
   }
 
   private void updateStatus(GameStatus status) {
-    this.gameHistory.add(status);
+    GameStatus temp = new GameStatus();
+    temp.characterName = status.characterName;
+    temp.currentPosition = status.currentPosition;
+    temp.moveCount = status.moveCount;
+    this.gameHistory.add(temp);
   }
 
   public Availability startedCheck() {

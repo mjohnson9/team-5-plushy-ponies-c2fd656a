@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import java.awt.Point;
 
 import com.levelup.forestsandmonsters.game.GameController;
+import com.levelup.forestsandmonsters.game.GameStatus;
 import com.levelup.forestsandmonsters.game.Position;
 
 import io.cucumber.java.en.Given;
@@ -53,7 +54,7 @@ public class MoveSteps {
     public void theCharacterMoves() {
         testObj.setCharacterPosition(new Point(this.startX, this.startY));
         testObj.move(this.direction);
-        GameController.GameStatus status = testObj.getStatus();
+        GameStatus status = testObj.getStatus();
         this.currentPosition = status.currentPosition;
     }
 

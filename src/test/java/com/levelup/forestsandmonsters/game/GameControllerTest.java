@@ -12,7 +12,6 @@ import org.junit.Test;
 
 import com.levelup.forestsandmonsters.game.GameController;
 import com.levelup.forestsandmonsters.game.GameController.DIRECTION;
-import com.levelup.forestsandmonsters.game.GameController.GameStatus;
 
 public class GameControllerTest {
     @Test
